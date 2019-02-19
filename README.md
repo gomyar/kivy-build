@@ -14,7 +14,7 @@ It's got the following installed:
  - Latest version (as of this writing) of Android SDK command line tools : 3.3.1
  - NDK version: r17c
  - Android build-tools: r28.0.3
- - python-for-android: 0.7.1
+ - python-for-android: 0.7.0
  - android platform 2.6
 
 
