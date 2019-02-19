@@ -34,12 +34,12 @@ RUN cd /jdk/tools/bin && echo "y" | ./sdkmanager "platforms;android-26"
 
 RUN mkdir /ndk && cd /ndk && wget https://dl.google.com/android/repository/android-ndk-r17c-linux-x86_64.zip && cd /ndk && unzip *.zip && rm *.zip
 
-RUN pip install git+https://github.com/kivy/python-for-android.git
+RUN pip install python-for-android==0.7.0
 
 RUN cd /jdk && mkdir build-tools && cd build-tools && wget https://dl.google.com/android/repository/build-tools_r28.0.3-linux.zip && unzip build-tools_r28.0.3-linux.zip && mv android-9 28.0.3 && rm build-tools_r28.0.3-linux.zip
 
 RUN mkdir /initial
 COPY main.py /initial/
-RUN cd /initial && p4a apk --private . --package=com.initial.test --name "Initial Test App To Download Dependencies" --version 0.1 --bootstrap=sdl2 --requirements=python2,kivy --release --sdk-dir /jdk --ndk-dir /ndk/android-ndk-r17c --android-api 26 --ndk-api 21 
+RUN cd /initial && p4a apk --private . --package=com.initial.test --name "Initial Test App To Download Dependencies" --version 0.1 --bootstrap=sdl2 --requirements=python2,android,kivy --release --sdk-dir /jdk --ndk-dir /ndk/android-ndk-r17c --android-api 26 --ndk-api 21 --dist_name kivy-build
 
 CMD ['/bin/sh']

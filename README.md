@@ -30,14 +30,14 @@ Go to your mounted project directory in the container:
 
 Build your project:
 
-    p4a apk --private . --package=com.YOURPACKAGENAME --name "YOUR APP NAME" --version 0.1 --bootstrap=sdl2 --requirements=python2,kivy --release --sdk-dir /jdk --ndk-dir /ndk/android-ndk-r17c --android-api 26 --ndk-api 21
+    p4a apk --private . --package=com.YOURPACKAGENAME --name "YOUR APP NAME" --version 0.1 --bootstrap=sdl2 --requirements=python2,android,kivy --release --sdk-dir /jdk --ndk-dir /ndk/android-ndk-r17c --android-api 26 --ndk-api 21 --dist-name kivy-build
 
 
-After building, it will show a file called unnamed_dist_1-0.1-release-unsigned.apk in the current directory.
+After building, it will show a file called kivy-build-0.1-release-unsigned.apk in the current directory.
 To sign this for uploading to the Android Play Store, you will need a keystore with your certificate in it (outside the scope of this):
 
-    jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ./YOURKEYSTORE.keystore unnamed_dist_1-0.1-release-unsigned.apk KEYNAME
+    jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore ./YOURKEYSTORE.keystore kivy-build-0.1-release-unsigned.apk KEYNAME
 
-    /jdk/build-tools/28.0.3/zipalign -v 4 unnamed_dist_1-0.1-release-unsigned.apk YOURRELEASEDAPP.apk
+    /jdk/build-tools/28.0.3/zipalign -v 4 kivy-build-0.1-release-unsigned.apk YOURRELEASEDAPP.apk
 
 Provided all the stars have aligned, you should be able to upload YOURRELEASEDAPP.apk to the Google Play Store
