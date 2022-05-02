@@ -8,6 +8,7 @@ kivy.require('1.0.6') # replace with your current kivy version !
 from kivy.app import App
 from kivy.uix.label import Label
 
+print "P4A_ORIENTATION: %s" % os.getenv('P4A_ORIENTATION', 'None')
 
 class MyApp(App):
 

@@ -22,7 +22,8 @@ To build, you'll need to mount your project dir as a volumne, and either run a p
 
 Run the container, and start a bash session:
 
-    docker run -v ${PWD}:/src -it gomyar/kivy-build /bin/bash
+    #docker run -v ${PWD}:/src -it gomyar/kivy-build /bin/bash
+    docker run -u $UID -v $PWD:/buildozer -it gomyar/kivy-build:1.11.1
 
 Go to your mounted project directory in the container:
 
