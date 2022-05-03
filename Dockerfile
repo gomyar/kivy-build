@@ -1,6 +1,9 @@
 
 FROM ubuntu:20.04
 
+ENV TZ=Europe/Dublin
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
 RUN dpkg --add-architecture i386
 
 RUN apt-get update && \
