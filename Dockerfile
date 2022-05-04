@@ -38,6 +38,6 @@ USER buildozer
 RUN buildozer init
 
 COPY main.py /buildozer/
-RUN buildozer android debug 
+RUN yes | buildozer android debug 
 
 CMD '/bin/bash'
